@@ -21,7 +21,6 @@ public class Main extends Application {
 
         Button button = new Button("Click me");
 
-
         ChoiceBox<String> choiceBox = new ChoiceBox<>(); //created empty drop-down
         //need to call getItems() before we add items.
 
@@ -31,8 +30,12 @@ public class Main extends Application {
         choiceBox.getItems().addAll("Bacon", "Meatballs");
 
         //if we want to have some value already selected
-        choiceBox.setValue("Apples");
+        //choiceBox.setValue("Apples");
 
+
+        //Adding listeners to the dropdown menu
+        //here wer're just printing the newvalue that is being selected.
+        choiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> System.out.println(newValue));
 
         VBox layout = new VBox(10);
         layout.getChildren().addAll(choiceBox, button);
